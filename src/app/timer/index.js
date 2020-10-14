@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {button as buttonStyles} from '../styles'
+import {button as buttonStyles} from './styles'
 
 class Timer extends Component {
   state = {
@@ -32,7 +32,7 @@ class Timer extends Component {
     this._timer = setInterval(() => {
       const {time} = this.state
       const newTime = time - 1
-      if (newTime <= 0) {
+      if (newTime < 0) {
         this.stop()
         this.reset()
       } else {
@@ -64,13 +64,31 @@ class Timer extends Component {
       maxWidth: 360,
       height: 90,
     }
+    const inputStyles2 = {
+      fontSize: '5em',
+      textAlign: 'center',
+      border: 'none',
+      background: 'none',
+      outline: 'none',
+      maxWidth: 360,
+      height: 90,
+      color: "red"
+    }
+    
+    const colorLabel = {
+      color: 'red',
+    }
     return (
       <div style={{textAlign: 'center'}}>
         <div style={{maxWidth: 400, margin: 'auto'}}>
-          <input style={inputStyles} onChange={this.handleChange} value={time || '0'} type="number" />
+          {time === 0
+          ? <div> <input style={inputStyles2} onChange={this.handleChange} value={time || "0"} type="number" /> <h5 style={colorLabel}>Acabou o Tempo !!!</h5></div>
+          : <div> <input style={inputStyles} onChange={this.handleChange} value={time || "0"} type="number" /> <h5>Tempo Restante</h5></div>
+          }
         </div>
-        <button style={buttonStyles} onClick={this.handleRunClick} data-test="toggle">{running ? 'Stop' : 'Start'}</button>
-        <button style={buttonStyles} onClick={this.handleClearClick} data-test="clear">Reset</button>
+        
+        <button style={buttonStyles} onClick={this.handleRunClick} data-test="toggle">{running ? 'Parar' : 'Reproduzir'}</button>
+        <button style={buttonStyles} onClick={this.handleClearClick} data-test="clear">Recomeçar</button>
       </div>
     )
   }
