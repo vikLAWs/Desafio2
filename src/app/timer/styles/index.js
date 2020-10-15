@@ -1,10 +1,11 @@
 export const button = {
-  border: '1px solid #ccc',
-  background: '#fff',
-  fontSize: '1em',
+  border: '1px solid purple',
+  background: 'purple',
+  fontSize: '1.5em',
   padding: '15px',
   margin: '0 5px',
   width: '200px',
+  fontFamily: 'monospace'
 }
 export const inputStyles = {
   fontSize: '5em',
@@ -29,4 +30,5 @@ export const inputStyles2 = {
 
 export const colorLabel = {
   color: 'red',
+  fontFamily: 'monospace'
 }

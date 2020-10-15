@@ -12,7 +12,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Desafio 2</h2>
+          <h1>Desafio 2</h1>
         </div>
         <div>
           <Clock />
@@ -25,8 +25,8 @@ class App extends Component {
         </div>
         <div style={{display: 'flex', justifyContent: 'center', backgroundColor: 'black', paddingBottom: 40}}>
           <div>
-            <h3 style={{color: 'purple', fontSize: 40}}>Temporizador (Segundos)</h3>
-            <Timer />
+            <h3 className="font">Temporizador (Segundos)</h3>
+            <Timer /> 
           </div>
           
         </div>

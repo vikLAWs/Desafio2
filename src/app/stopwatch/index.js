@@ -124,7 +124,6 @@ class StopWatch extends Component {
   render() {
     const buttonStyles = {
       border: '1px solid black',
-      background: '#fff',
       fontSize: '1.5em',
       padding: '15px',
       margin: '0 5px',
