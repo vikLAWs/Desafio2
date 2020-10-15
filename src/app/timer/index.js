@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {button as buttonStyles} from './styles'
-
+import {inputStyles as inputStyles} from './styles'
+import {inputStyles2 as inputStyles2} from './styles'
+import {colorLabel as colorLabel} from './styles'
 class Timer extends Component {
   state = {
     time: 0,
@@ -55,35 +57,13 @@ class Timer extends Component {
 
   render() {
     const {time, running} = this.state
-    const inputStyles = {
-      fontSize: '5em',
-      textAlign: 'center',
-      border: 'none',
-      background: 'none',
-      outline: 'none',
-      maxWidth: 360,
-      height: 90,
-    }
-    const inputStyles2 = {
-      fontSize: '5em',
-      textAlign: 'center',
-      border: 'none',
-      background: 'none',
-      outline: 'none',
-      maxWidth: 360,
-      height: 90,
-      color: "red"
-    }
     
-    const colorLabel = {
-      color: 'red',
-    }
     return (
       <div style={{textAlign: 'center'}}>
         <div style={{maxWidth: 400, margin: 'auto'}}>
           {time === 0
           ? <div> <input style={inputStyles2} onChange={this.handleChange} value={time || "0"} type="number" /> <h5 style={colorLabel}>Acabou o Tempo !!!</h5></div>
-          : <div> <input style={inputStyles} onChange={this.handleChange} value={time || "0"} type="number" /> <h5>Tempo Restante</h5></div>
+          : <div> <input style={inputStyles} onChange={this.handleChange} value={time || "0"} type="number" /> <h5 style={{color: 'purple'}}>Tempo Restante</h5></div>
           }
         </div>
         

@@ -10,44 +10,10 @@ class StopWatch extends Component {
     running: false,
   };
   
-  // state = {
-  //   running: false,
-  //   lapse: 0,
-  // }
-
-  // _now = 0
+  
   _timer = null
 
-  // handleRunClick = () => {
-  //   if (this.state.running) {
-  //     this.stop()
-  //   } else {
-  //     this.start()
-  //   }
-  // }
-
-  // handleClearClick = () => {
-  //   this.stop()
-  //   this._now = 0
-  //   this.setState({lapse: 0})
-  // }
-
-  // start() {
-  //   this._timer = setInterval(() => {
-  //     this.setState({
-  //       lapse: Date.now() - this._now,
-  //     })
-  //   }, 1)
-
-  //   this._now = Date.now() - this.state.lapse
-  //   this.setState({running: true})
-  // }
-
-  // stop() {
-  //   clearInterval(this._timer)
-  //   this._timer = null
-  //   this.setState({running: false})
-  // }
+  
   
   
 
@@ -68,14 +34,7 @@ class StopWatch extends Component {
   }
   
   incrementar () {
-    // this.setState(
-    //   function (state, props) {
-    //    if (state.cs >= 99){
-    //      this.zerarCs();
-    //      this.incrementarSeg(state);
-    //    }  
-    //    return({ cs: state.cs ++})
-    //   })
+    
     if(this.state.cs >= 99){
       this.zerarCs()
       this.incrementarSeg()
@@ -164,12 +123,14 @@ class StopWatch extends Component {
 
   render() {
     const buttonStyles = {
-      border: '1px solid #ccc',
+      border: '1px solid black',
       background: '#fff',
-      fontSize: '1em',
+      fontSize: '1.5em',
       padding: '15px',
       margin: '0 5px',
       width: '200px',
+      background: 'black',
+      color: 'purple'
     }
     return (
       <div style={{textAlign: 'center'}}>

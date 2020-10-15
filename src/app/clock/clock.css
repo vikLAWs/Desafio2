@@ -1,0 +1,10 @@
+.Time {
+font-family: courier, monospace;
+color: purple;
+font-size: 110px;
+text-align: center;
+height: 1em;
+display: flex;
+align-items: center;
+justify-content: center;
+}
