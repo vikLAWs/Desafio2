@@ -7,7 +7,7 @@ class completeClock extends Component {
         return (
             <div className="completeClock">
                 <div className="clock">
-                    <p>Relógio</p>
+                    <p style={{height: '0.1em'}}>Relógio</p>
                     <Clock />
                 </div>
             </div>
