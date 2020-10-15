@@ -11,7 +11,7 @@ class Clock extends Component {
         }
     }
 
-    
+    fuso = 1
 
     componentDidMount() {
         this.intervalID = setInterval(() =>
@@ -25,29 +25,36 @@ class Clock extends Component {
     }
 
     updateClock(){
-        this.setState({
-        time: new Date().toLocaleTimeString()   
-    });
+        if (this.fuso === 2) {
+            this.setState({
+                time: new Date().toLocaleTimeString()   
+            });
+        } 
+        else {
+            if (this.fuso === 3 ) {
+                this.setState({
+                    time: new Date().toLocaleTimeString('pt-BR', { timeZone: 'Europe/London' })  
+                });
+            } 
+            else {
+                this.setState({
+                    time: new Date().toLocaleTimeString('pt-BR', { timeZone: 'America/Vancouver' })
+                });
+            }
+
+            
+        }
     }
 
-    selectClock(botao){
-        if (botao === 1) {
-            this.setState({ 
-                clock: 1
-            })
-        }
-        else {
-            if (botao === 2) {
-                this.setState({ 
-                    clock: 2
-                })
-            } else {
-                this.setState({ 
-                    clock: 3
-                })
-            }
-        } 
-      }
+    selecionarFusoNY = () => {
+        this.fuso = 1
+    }
+    selecionarFusoBrasilia = () => {
+        this.fuso = 2
+    }
+    selecionarFusoToquio = () => {
+        this.fuso = 3
+    }
 
     render() {
     
@@ -58,7 +65,7 @@ class Clock extends Component {
             margin: '0 5px',
             width: '200px',
             background: 'purple',
-            color: 'balck'
+            color: 'black'
         }
         const buttonStylesSelected = {
             border: '1px solid purple',
@@ -69,7 +76,8 @@ class Clock extends Component {
             background: 'black',
             color: 'purple'
         }
-        const {clock} = this.state 
+        
+        var fuso = this.fuso 
 
     return (
         
@@ -77,13 +85,18 @@ class Clock extends Component {
         <div className="Time">
         <p style={{display: 'block', height: '0.1em'}}> {this.state.time}</p>
         <div>
-        {clock === 1
-          ? <button style={buttonStylesSelected} onClick={this.selectClock(1)}>Nova Iorque</button>
-          : <button style={buttonStyles} onClick={this.selectClock(1)}>Nova Iorque</button>
+        {fuso === 1
+          ? <button style={buttonStylesSelected} onClick={this.selecionarFusoNY}>Vancouver, BC, Canadá (GMT-7)</button>
+          : <button style={buttonStyles}  onClick={this.selecionarFusoNY}>Vancouver, BC, Canadá (GMT-7)</button>
         }
-        
-        {/* <button style={buttonStylesSelected} onClick={this.handleClearClick}>Nova Iorque</button> 
-        <button style={buttonStyles} onClick={this.handleClearClick}>Tóquio</button>  */}
+        {fuso === 2
+          ? <button style={buttonStylesSelected} onClick={this.selecionarFusoBrasilia}>Brasília - DF (GMT-3)</button>
+          : <button style={buttonStyles} onClick={this.selecionarFusoBrasilia}>Brasília - DF (GMT-3)</button>
+        }
+        {fuso === 3
+          ? <button style={buttonStylesSelected} onClick={this.selecionarFusoToquio}>Londres, Reino Unido (GMT+1)</button>
+          : <button style={buttonStyles} onClick={this.selecionarFusoToquio}>Londres, Reino Unido (GMT+1)</button>
+        }
         </div>
         </div>
     
