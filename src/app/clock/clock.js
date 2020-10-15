@@ -11,7 +11,7 @@ class Clock extends Component {
         }
     }
 
-    fuso = 1
+    fuso = 2
 
     componentDidMount() {
         this.intervalID = setInterval(() =>
